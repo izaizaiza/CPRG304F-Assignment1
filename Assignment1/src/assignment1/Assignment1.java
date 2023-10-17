@@ -4,7 +4,7 @@
  */
 package assignment1;
 
-import static assignment1.ArraySorter.bubbleSort;
+
 import java.util.Scanner;
 
 /**
