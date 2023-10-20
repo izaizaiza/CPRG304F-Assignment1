@@ -15,10 +15,10 @@ public class SortManager {
     
     // file name
     
-    private String fileName; // name of the file
-    private char compareType; // 'v'(volume) or 'h'(height), or 'a'(base area)
-    private char sortType; // 'b' (bubble sort) or 's' (selection), or 'i' (insertion)
-    // or 'm' (merge) or 'q' (quicksort) or z (some other sorting algo)
+    private String fileName = ""; // name of the file; empty string for initial values
+    private char compareType = 'x'; // 'v'(volume) or 'h'(height), or 'a'(base area); x for initial values
+    private char sortType = 'x'; // 'b' (bubble sort) or 's' (selection), or 'i' (insertion)
+    // or 'm' (merge) or 'q' (quicksort) or z (some other sorting algo); x for initial values
     
     
     
@@ -29,31 +29,25 @@ public class SortManager {
     public SortManager(String[] args){
         
         // for recognizing the fileName args
-        if(args[0].toLowerCase().startsWith("-f") ||
-                args[0].toLowerCase().startsWith("-F")){
+        if(args[0].toLowerCase().startsWith("-f")){
             fileName = args[0].substring(2);    
         }
-        else if(args[1].toLowerCase().startsWith("-f") ||
-                args[1].toLowerCase().startsWith("-F")){
+        else if(args[1].toLowerCase().startsWith("-f")){
             fileName = args[1].substring(2);
         }
-        else if(args[2].toLowerCase().startsWith("-f") ||
-                args[2].toLowerCase().startsWith("-F")){
+        else if(args[2].toLowerCase().startsWith("-f")){
             fileName = args[2].substring(2);
         }
         
         // for recognizing the compareType args: either volume (v),
         // height (h), or base area (a)
-        if(args[0].toLowerCase().startsWith("-t") ||
-                args[0].toLowerCase().startsWith("-T")){
+        if(args[0].toLowerCase().startsWith("-t")){
             fileName = args[0].substring(2);    
         }
-        else if(args[1].toLowerCase().startsWith("-t") ||
-                args[1].toLowerCase().startsWith("-T")){
+        else if(args[1].toLowerCase().startsWith("-t")){
             fileName = args[1].substring(2);
         }
-        else if(args[2].toLowerCase().startsWith("-t") ||
-                args[2].toLowerCase().startsWith("-T")){
+        else if(args[2].toLowerCase().startsWith("-t")){
             fileName = args[2].substring(2);
         }
         
