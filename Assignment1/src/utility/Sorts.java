@@ -10,7 +10,10 @@ package utility;
  */
 public class Sorts {
    
+    // constructor, maybe we do not need this
     public Sorts(){} 
+    
+    // quick sort
     public static void quickSort(int[] arr, int low, int high) {
         int p, i, j, temp;
         if (low >= high) {
@@ -36,7 +39,8 @@ public class Sorts {
         quickSort(arr, low, j - 1);
         quickSort(arr, j + 1, high);
     }
-
+    
+    //bubble sort
     public static void bubbleSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
@@ -48,7 +52,8 @@ public class Sorts {
             }
         }
     }
-
+    
+    //seclect sort
     public static void selectSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int min = i;
@@ -65,6 +70,7 @@ public class Sorts {
         }
     }
 
+    // insertSort    
     public static void insertSort(int[] arr) {
         int i, j, k;
 
@@ -85,9 +91,8 @@ public class Sorts {
     }
     
     //Merge sort
-    
-    //create a merge function that merges list one and list two
+        
     
     //one more sorting
     
-}
+} //end of Sorts Class

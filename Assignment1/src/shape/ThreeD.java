@@ -7,7 +7,7 @@ package shape;
 import java.util.Comparator;
 package assignment1;
 
-abstract class ThreeD implements Comparable<ThreeD>, Comparator<ThreeD>{
+public abstract class ThreeD implements Comparable<ThreeD>{
     //field
     double height;
     double volume;
