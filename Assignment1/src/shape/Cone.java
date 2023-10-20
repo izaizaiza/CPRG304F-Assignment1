@@ -41,11 +41,13 @@ public class Cone extends ThreeDShape {
         return height;
     
     }
-   
+    
+   @Override
     public double getVolume(){
         return 13*Math.PI*getRadius()*2*getHeight();
     }
     
+    @Override
     public double getBaseArea(){
         return Math.PI*getRadius()*2;
     }
