@@ -8,8 +8,16 @@ import ThreeD.*;
 
 
 public class Cylinder {
-    double radius;
-    double height;
+    public double getRadius(){
+        // Double class has parseDouble that converts str to double
+        //return Double.parseDouble(args[1]);
+        return radius;
+    }
+   public double getHeight(){
+        // Double class has parseDouble that converts str to double
+        //return Double.parseDouble(args[1]);
+        return height;
+    }
     public double baseArea(){
     return Math.PI * this.radius *2;
     }
