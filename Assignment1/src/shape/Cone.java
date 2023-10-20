@@ -11,13 +11,11 @@ package shape;
 public class Cone extends ThreeDShape {
     
     private double radius;
-    //private double volume;
-    //private double baseArea;
     private double height;
     
     
     // constuctors
-    public Cone(double radius, double height){
+    public Cone(double height, double radius){
         this.radius = radius;
         this.height = height;
         
