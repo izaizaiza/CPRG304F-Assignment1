@@ -3,18 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package utility;
+import shape.ThreeDShape;
+
 
 /**
  *
  * @author dlg12
  */
-public class Sorts {
+public class Sorts<T extends Comparable>{
    
     // constructor, maybe we do not need this
     public Sorts(){} 
     
     // quick sort
-    public static void quickSort(int[] arr, int low, int high) {
+    public void quickSort(T[] arr, T low, T high) {
         int p, i, j, temp;
         if (low >= high) {
             return;
@@ -41,7 +43,7 @@ public class Sorts {
     }
     
     //bubble sort
-    public static void bubbleSort(int[] arr) {
+    public void bubbleSort(T[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
                 if (arr[j - 1] > arr[j]) {
@@ -54,7 +56,7 @@ public class Sorts {
     }
     
     //seclect sort
-    public static void selectSort(int[] arr) {
+    public void selectSort(T[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int min = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -71,7 +73,7 @@ public class Sorts {
     }
 
     // insertSort    
-    public static void insertSort(int[] arr) {
+    public void insertSort(T[] arr) {
         int i, j, k;
 
         for (i = 1; i < arr.length; i++) {
@@ -90,8 +92,24 @@ public class Sorts {
         }
     }
     
-    //Merge sort
+    // Merge sort
+    // First create a merge function that merges two arrays of Shape through
+    // sorting by height
+    public T[] mergeByHeight(T[] array1, T[] array2){
+        T[] mergedArray;
         
+        for (int i=0; i < array1.length; i++){
+            for (int j=0; j < array2.length; j++){
+                if (array1[i].getHeight() > array2[j].getHeight()){
+                    mergedArray[0]= (array1[i].getHeight());
+                }
+            }
+        }
+        
+        return mergedArray; 
+    }
+    
+    
     
     //one more sorting
     
