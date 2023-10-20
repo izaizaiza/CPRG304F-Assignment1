@@ -93,8 +93,8 @@ public class AppDriver {
     /**
      *
      * @param shapeType
-     * @param value1
-     * @param value2
+     * @param value1 the height 
+     * @param value2 either the radius (r) or side (s)
      * @return
      */
     public static ThreeDShape createThreeDShape(String shapeType, double value1, double value2) {
