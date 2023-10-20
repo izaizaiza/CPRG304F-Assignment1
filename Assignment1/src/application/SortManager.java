@@ -34,11 +34,11 @@ public class SortManager {
             fileName = args[0].substring(2);    
         }
         else if(args[1].toLowerCase().startsWith("-f") ||
-                args[0].toLowerCase().startsWith("-F")){
+                args[1].toLowerCase().startsWith("-F")){
             fileName = args[1].substring(2);
         }
         else if(args[2].toLowerCase().startsWith("-f") ||
-                args[0].toLowerCase().startsWith("-F")){
+                args[2].toLowerCase().startsWith("-F")){
             fileName = args[2].substring(2);
         }
         
@@ -49,11 +49,11 @@ public class SortManager {
             fileName = args[0].substring(2);    
         }
         else if(args[1].toLowerCase().startsWith("-t") ||
-                args[0].toLowerCase().startsWith("-T")){
+                args[1].toLowerCase().startsWith("-T")){
             fileName = args[1].substring(2);
         }
         else if(args[2].toLowerCase().startsWith("-t") ||
-                args[0].toLowerCase().startsWith("-T")){
+                args[2].toLowerCase().startsWith("-T")){
             fileName = args[2].substring(2);
         }
         
