@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package assignment1;
+package utility;
 
 /**
  *
  * @author dlg12
  */
-public class ArraySorter {
+public class Sorts {
    
-    public ArraySorter(){} 
+    public Sorts(){} 
     public static void quickSort(int[] arr, int low, int high) {
         int p, i, j, temp;
         if (low >= high) {
@@ -82,5 +82,12 @@ public class ArraySorter {
                 
             }
         }
-    }//Merge, one more sorting
+    }
+    
+    //Merge sort
+    
+    //create a merge function that merges list one and list two
+    
+    //one more sorting
+    
 }

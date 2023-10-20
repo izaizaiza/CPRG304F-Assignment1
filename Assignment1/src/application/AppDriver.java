@@ -2,16 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package assignment1;
+package application;
 
 
+import utility.Sorts;
 import java.util.Scanner;
 
 /**
  *
  * @author dlg12
  */
-public class Assignment1 {
+public class AppDriver {
 
     /**
      * @param args the command line arguments
@@ -27,10 +28,10 @@ public class Assignment1 {
         System.out.println("4. selectSort");
         int index = new Scanner(System.in).nextInt();
         switch (index) {
-            case 1 -> ArraySorter.quickSort(sortArr, 0, sortArr.length - 1);
-            case 2 -> ArraySorter.bubbleSort(sortArr);
-            case 3 -> ArraySorter.insertSort(sortArr);
-            case 4 -> ArraySorter.selectSort(sortArr);
+            case 1 -> Sorts.quickSort(sortArr, 0, sortArr.length - 1);
+            case 2 -> Sorts.bubbleSort(sortArr);
+            case 3 -> Sorts.insertSort(sortArr);
+            case 4 -> Sorts.selectSort(sortArr);
         }
         System.out.println("sorted:");
         for (int j : sortArr) {
