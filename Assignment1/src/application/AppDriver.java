@@ -5,10 +5,9 @@
 package application;
 
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.Scanner;
 import shape.ThreeDShape;
 import shape.Cone;
 import shape.Cylinder;
@@ -23,91 +22,101 @@ public class AppDriver {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
-        //int[] sortArr = {1, 9, 3, 35, 17, 2, 31, 4};
-        //ArraySorter arraysorter = new ArraySorter();
+    public static void main(String[] args){
+       /**
+        * this method reads a text file of unsorted shapes
+        * and add them to an array
+        */ 
+       
+       // command line args; initialized with some value; to be changed later
+       String fileName = "";
+       String comparisonType = "";
+       String sortingAlgo = "";
+       
+       
+       // Parse command line args
+       for (int i=0; i < args.length; i++){
+           if(args[i].toLowerCase().startsWith("-f")){
+               fileName = args[i].substring(2);
+           }
+           else if(args[i].toLowerCase().startsWith("-t")){
+               comparisonType = args[i].substring(2);
+           }
+           else if(args[i].toLowerCase().startsWith("-t")){
+               sortingAlgo = args[i].substring(2).toLowerCase(); // make them all lower case for easier handling
+           }
+       }
+       
+       // just in case the filename is not entered
+       if (fileName.isEmpty() || comparisonType.isEmpty() || !isValidSortingAlgo(sortingAlgo)){
+           System.out.println("Use the command: java AppDriver -f<file name> -t<comparison type> -s<sorting algorithm>");
+           System.exit(1); // failed run and terminate
+       }
+       
+       
+       ////////// reading the file
+       
+       // create an array to store the threeD shapes
+       ThreeDShape[] shapes3D = new ThreeDShape[100]; // size will be changed later
+       
+       
+       // Read the shapes from the given file and add to the array
+       try{
+           //create scanner to read the texts
+           Scanner scanner = new Scanner(new File(fileName));
+           
+           // Read the shapes from the file and add them to the list
+           int shape3DCount = 0;
+           while (scanner.hasNext()) {
+               // recall that the very first text/token is the num of shapes
+               int numOfShapes = Integer.parseInt(scanner.next());
+               // the next thing would then be a shapeType
+               String shapeType = scanner.next();
+               // find out what 3D shape it is to create it and add to the list
+               if(shapeType.equalsIgnoreCase("Cylinder")){
+                   double height = scanner.nextDouble();
+                   double radius = scanner.nextDouble();
+                   shapes3D[shape3DCount] = new Cylinder(height, radius);
+               }
+               else if(shapeType.equalsIgnoreCase("Cone")){
+                   //handle Cone
+               }
+               else if(shapeType.equalsIgnoreCase("Pyramid")){
+                   //handle Pyramid
+               }
+               else if(shapeType.equalsIgnoreCase("Prism") || 
+                       shapeType.contains("Prism")){
+                   // handle Prism
+               }
+           }
+           
+           //close scanner
+           scanner.close();
+       }
+       catch (FileNotFoundException e){
+           System.out.println("Error reading the file: " + e.getMessage());
+           System.exit(1); // run is failed so terminate
+       }
 
-        //System.out.println("Please choose a sort algorithm");
-        //System.out.println("1. quickSort");
-        //System.out.println("2. bubbleSort");
-        //System.out.println("3. insertSort");
-        //System.out.println("4. selectSort");
-        //int index = new Scanner(System.in).nextInt();
-        //switch (index) {
-        //    case 1 -> Sorts.quickSort(sortArr, 0, sortArr.length - 1);
-        //    case 2 -> Sorts.bubbleSort(sortArr);
-        //   case 3 -> Sorts.insertSort(sortArr);
-        //    case 4 -> Sorts.selectSort(sortArr);
-        //}
-        //System.out.println("sorted:");
-        //for (int j : sortArr) {
-        //    System.out.println(j);
-        //}
+       
         
-        String fileName = args[1];
-        // we need this to count the number of shapes in the file
-        int numShapes = 0;
         
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            numShapes = Integer.parseInt(reader.readLine());
-            ThreeDShape[] shapes = new ThreeDShape[numShapes];
-
-            for (int i = 0; i < numShapes; i++) {
-                String line = reader.readLine();
-                String[] tokens = line.split(" ");
-
-                if (tokens.length < 3) {
-                    System.out.println("Invalid shape data: " + line);
-                    continue;
-                }
-
-                String shapeType = tokens[0];
-                double value1 = Double.parseDouble(tokens[1]);
-                double value2 = Double.parseDouble(tokens[2]);
-
-                // Create shape objects based on the shapeType
-                ThreeDShape shape = createThreeDShape(shapeType, value1, value2);
-
-                if (shape != null) {
-                    shapes[i] = shape;
-                }
-            }
-            // Now you have an array of shape objects
-            for (ThreeDShape shape : shapes) {
-                if (shape != null) {
-                    System.out.println("Shape: " + shape.getClass().getSimpleName());
-                    System.out.println("Height: " + shape.getHeight());
-                    System.out.println("Base Area: " + shape.getBaseArea());
-                    System.out.println("Volume: " + shape.getVolume());
-                    System.out.println();
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred while reading the file: " + e.getMessage());
-        }        
-    } //end of main method
+    }// end of main method
     
     
-    //createThreeDShape
-
-    /**
-     *
-     * @param shapeType
-     * @param value1 the height 
-     * @param value2 either the radius (r) or side (s)
-     * @return
-     */
-    public static ThreeDShape createThreeDShape(String shapeType, double value1, double value2) {
-        switch (shapeType) {
-            case "Cylinder":
-                return new Cylinder(value1, value2);
-            case "Cone":
-                return new Cone(value1, value2);
-            // Add cases for other prism types as needed
-            default:
-                System.out.println("Unknown shape type: " + shapeType);
-                return null;
+    //create isValidSortingAlgo method to help manage the command line args
+    private static boolean isValidSortingAlgo(String algo){
+        if (algo.equalsIgnoreCase("b") || 
+                algo.equalsIgnoreCase("s") || 
+                algo.equalsIgnoreCase("i") ||
+                algo.equalsIgnoreCase("q") ||
+                algo.equalsIgnoreCase("m") ||
+                algo.equalsIgnoreCase("z")){
+            return true;
         }
-    }// end of createThreeDShape
+        else{
+            return false;
+        }            
+    }
     
 } // end of AppDriver class

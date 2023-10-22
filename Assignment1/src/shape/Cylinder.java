@@ -3,25 +3,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package shape;
-import ThreeD.*;
 
 
 
-public class Cylinder {
+
+public class Cylinder extends ThreeDShape{
+    
+    private double radius;
+    private double height;
+    
+    
+    // constuctors
+    public Cylinder(double height, double radius){
+        this.radius = radius;
+        this.height = height;
+    }
+    
+    public Cylinder(){}
+    
+    
+    
+    //methods
+    
     public double getRadius(){
         // Double class has parseDouble that converts str to double
         //return Double.parseDouble(args[1]);
-        return radius;
+        return this.radius;
     }
-   public double getHeight(){
-        // Double class has parseDouble that converts str to double
-        //return Double.parseDouble(args[1]);
-        return height;
+    
+    @Override
+    public double getHeight(){
+         // Double class has parseDouble that converts str to double
+         //return Double.parseDouble(args[1]);
+         return this.height;
+     }
+    
+    @Override
+    public double getBaseArea(){
+        return Math.PI * this.radius *2;
     }
-    public double baseArea(){
-    return Math.PI * this.radius *2;
-    }
-    public double volume(){
+    
+    @Override
+    public double getVolume(){
         return Math.PI * this.radius *2 * this.height;
     }
 }
