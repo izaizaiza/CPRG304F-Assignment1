@@ -105,7 +105,7 @@ public class Sorts<T extends Comparable>{
             }
         }
         
-        return mergedArray; 
+        return mergedArray;
     }
     
     

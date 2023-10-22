@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package shape;
 
 
 
 
 public class Cylinder extends ThreeDShape{
+    
+    /**
+    * The Cylinder class inherits ThreeDShape and
+    * override the methods for getting the base area, volume and height
+    * as computing the those are different from other 3D shapes
+    */
     
     private double radius;
     private double height;
