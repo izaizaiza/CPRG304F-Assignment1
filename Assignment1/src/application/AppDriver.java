@@ -42,7 +42,7 @@ public class AppDriver {
            else if(args[i].toLowerCase().startsWith("-t")){
                comparisonType = args[i].substring(2);
            }
-           else if(args[i].toLowerCase().startsWith("-t")){
+           else if(args[i].toLowerCase().startsWith("-s")){
                sortingAlgo = args[i].substring(2).toLowerCase(); // make them all lower case for easier handling
            }
        }
@@ -57,19 +57,25 @@ public class AppDriver {
        ////////// reading the file
        
        // create an array to store the threeD shapes
-       ThreeDShape[] shapes3D = new ThreeDShape[100]; // size will be changed later
+       ThreeDShape[] shapes3D = new ThreeDShape[100]; // will be changed later
        
        
        // Read the shapes from the given file and add to the array
+       // used scanner to read the shapes and properties by " " instead of by line
+       // since NOT each line is organized where the first up is a shapeType
        try{
            //create scanner to read the texts
            Scanner scanner = new Scanner(new File(fileName));
+           // use " " as the delimiter
+           scanner.useDelimiter(" ");
            
            // Read the shapes from the file and add them to the list
            int shape3DCount = 0;
            while (scanner.hasNext()) {
                // recall that the very first text/token is the num of shapes
                int numOfShapes = Integer.parseInt(scanner.next());
+               // use the numOfShapes to create the array
+               shapes3D = new ThreeDShape[numOfShapes];
                // the next thing would then be a shapeType
                String shapeType = scanner.next();
                // find out what 3D shape it is to create it and add to the list
@@ -77,12 +83,19 @@ public class AppDriver {
                    double height = scanner.nextDouble();
                    double radius = scanner.nextDouble();
                    shapes3D[shape3DCount] = new Cylinder(height, radius);
+                   shape3DCount++;
                }
                else if(shapeType.equalsIgnoreCase("Cone")){
                    //handle Cone
+                   double height = scanner.nextDouble();
+                   double radius = scanner.nextDouble();
+                   shapes3D[shape3DCount] = new Cone(height, radius);
+                   shape3DCount++;
                }
-               else if(shapeType.equalsIgnoreCase("Pyramid")){
+               else if(shapeType.equalsIgnoreCase("Pyramid") ||
+               shapeType.contains("Pyramid")){
                    //handle Pyramid
+                   
                }
                else if(shapeType.equalsIgnoreCase("Prism") || 
                        shapeType.contains("Prism")){
@@ -92,11 +105,27 @@ public class AppDriver {
            
            //close scanner
            scanner.close();
+           
+           //print the 3d to check
+           for (int i = 0; i< shapes3D.length; i++){
+               System.out.println(shapes3D[i].getHeight());
+           }
+           //print shape3D count
+           System.out.println(shape3DCount);
        }
        catch (FileNotFoundException e){
            System.out.println("Error reading the file: " + e.getMessage());
            System.exit(1); // run is failed so terminate
        }
+       
+       
+       // Process and sort the shapes on the given criteria
+       // use ThreeDShapeComparator
+       // or the comparable
+       
+       
+       
+       //print the sorted shapes
 
        
         
@@ -104,19 +133,6 @@ public class AppDriver {
     }// end of main method
     
     
-    //create isValidSortingAlgo method to help manage the command line args
-    private static boolean isValidSortingAlgo(String algo){
-        if (algo.equalsIgnoreCase("b") || 
-                algo.equalsIgnoreCase("s") || 
-                algo.equalsIgnoreCase("i") ||
-                algo.equalsIgnoreCase("q") ||
-                algo.equalsIgnoreCase("m") ||
-                algo.equalsIgnoreCase("z")){
-            return true;
-        }
-        else{
-            return false;
-        }            
-    }
+    
     
 } // end of AppDriver class
