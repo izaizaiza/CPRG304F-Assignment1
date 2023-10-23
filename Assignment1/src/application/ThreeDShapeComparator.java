@@ -29,7 +29,7 @@ public class ThreeDShapeComparator implements Comparator<ThreeDShape>{
     //override the compare method
     @Override
     public int compare(ThreeDShape threeD1, ThreeDShape threeD2){
-        if(comparisonType.equalsIgnoreCase("a")){
+        if(this.comparisonType.equalsIgnoreCase("a")){
             //compare by base area
             
             // the Double wrapper class and the compare is a static method
@@ -41,7 +41,7 @@ public class ThreeDShapeComparator implements Comparator<ThreeDShape>{
             // else if threeD1 > threeD2: returns 1
             return Double.compare(threeD1.getBaseArea(), threeD2.getBaseArea());
         }
-        else if (comparisonType.equalsIgnoreCase("v")){
+        else if (this.comparisonType.equalsIgnoreCase("v")){
             // compare by volumne
             
             return Double.compare(threeD1.getVolume(), threeD2.getVolume());

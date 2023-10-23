@@ -119,6 +119,8 @@ public class AppDriver {
        }
        
        
+       
+       
        // Process and sort the shapes on the given criteria
        // use ThreeDShapeComparator
        // or the comparable
@@ -131,6 +133,21 @@ public class AppDriver {
         
         
     }// end of main method
+    
+    
+    //helper method for determining valid sorting algorithm
+    public static boolean isValidSortingAlgo(String sortingAlgo){
+        // return true if the given sortingAlgo is conatined in the string
+        // that has the supposed command arg for the sorting algorithms
+        // - "b" or "B" for bubble sort
+        // "s" or "S" for selection sort
+        // "i" or "I" for insertion sort
+        // "q" or "Q" for quick sort
+        // "m" or "M" for merge sort
+        // "z" or "Z" for some other sort
+        
+        return "bsiqmz".contains(sortingAlgo.toLowerCase());
+    }
     
     
     
