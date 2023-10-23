@@ -18,9 +18,8 @@ public abstract class ThreeDShape implements Comparable<ThreeDShape>{
     
     public abstract double getHeight();
     public abstract double getBaseArea();
-    public abstract double getBaseArea(String prismType); // for the prism shape
     public abstract double getVolume();
-    public abstract double getVolume(String prismType); // for the prism shape
+    
     
     
     
