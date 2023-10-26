@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package application;
 
 
@@ -67,6 +64,7 @@ public class AppDriver {
            //create scanner to read the texts
            Scanner scanner = new Scanner(new File(fileName));
            // use " " as the delimiter
+           //source: https://www.javatpoint.com/post/java-scanner-usedelimiter-method
            scanner.useDelimiter(" ");
            
            // Read the shapes from the file and add them to the list

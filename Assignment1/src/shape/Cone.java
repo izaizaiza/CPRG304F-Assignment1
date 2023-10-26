@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package shape;
 
 /**
@@ -28,12 +25,13 @@ public class Cone extends ThreeDShape {
     //methods
     
     public double getRadius(){
-        return radius;
+        return this.radius;
     }
+    
     
     @Override
     public double getHeight(){
-        return height;
+        return this.height;
     
     }
     
