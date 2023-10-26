@@ -69,29 +69,30 @@ public class AppDriver {
            
            // Read the shapes from the file and add them to the list
            int shape3DCount = 0;
+           // recall that the very first text/token is the num of shapes
+           int numOfShapes = Integer.parseInt(scanner.next());
            while (scanner.hasNext()) {
-               // recall that the very first text/token is the num of shapes
-               int numOfShapes = Integer.parseInt(scanner.next());
+               
+               
                // use the numOfShapes to create the array
                shapes3D = new ThreeDShape[numOfShapes];
                // the next thing would then be a shapeType
                String shapeType = scanner.next();
                // find out what 3D shape it is to create it and add to the list
-               if(shapeType.equalsIgnoreCase("Cylinder")){
+               if(shapeType.contains("Cylinder")){
                    double height = scanner.nextDouble();
                    double radius = scanner.nextDouble();
                    shapes3D[shape3DCount] = new Cylinder(height, radius);
                    shape3DCount++;
                }
-               else if(shapeType.equalsIgnoreCase("Cone")){
+               else if(shapeType.contains("Cone")){
                    //handle Cone
                    double height = scanner.nextDouble();
                    double radius = scanner.nextDouble();
                    shapes3D[shape3DCount] = new Cone(height, radius);
                    shape3DCount++;
                }
-               else if(shapeType.equalsIgnoreCase("Pyramid") ||
-               shapeType.contains("Pyramid")){
+               else if(shapeType.contains("Pyramid")){
                    //handle Pyramid
                    
                }
@@ -99,6 +100,11 @@ public class AppDriver {
                        shapeType.contains("Prism")){
                    // handle Prism
                }
+               
+            //print the 3d to check
+           //for (int i = 0; i< shapes3D.length; i++){
+           //    System.out.println(shapes3D[i].getHeight());
+           //}
            }
            
            //close scanner
