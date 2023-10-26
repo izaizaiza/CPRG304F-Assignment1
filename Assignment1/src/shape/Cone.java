@@ -28,16 +28,11 @@ public class Cone extends ThreeDShape {
     //methods
     
     public double getRadius(){
-        // Double class has parseDouble that converts str to double
-        //return Double.parseDouble(args[1]);
         return radius;
     }
     
     @Override
     public double getHeight(){
-        // Double class has parseDouble that converts str to double
-        // from: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html
-        //return Double.parseDouble(args[2]);
         return height;
     
     }

@@ -27,6 +27,7 @@ public abstract class ThreeDShape implements Comparable<ThreeDShape>{
     // use compareTo method from Comparable to compare by height
     // since ThreeDShape class implements Comparable we can just create a method
     // that overrides the compareTo
+    //used compare method from Double class; source:https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html 
     @Override
     public int compareTo(ThreeDShape anotherThreeD){
         return Double.compare(this.getHeight(), anotherThreeD.getHeight());

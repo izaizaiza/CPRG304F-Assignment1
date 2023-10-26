@@ -1,8 +1,9 @@
 
 package shape;
-
-
-
+/**
+ *
+ * @author dlg12
+ */
 
 public class Cylinder extends ThreeDShape{
     
@@ -29,15 +30,11 @@ public class Cylinder extends ThreeDShape{
     //methods
     
     public double getRadius(){
-        // Double class has parseDouble that converts str to double
-        //return Double.parseDouble(args[1]);
         return this.radius;
     }
     
     @Override
     public double getHeight(){
-         // Double class has parseDouble that converts str to double
-         //return Double.parseDouble(args[1]);
          return this.height;
      }
     
