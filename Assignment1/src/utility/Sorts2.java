@@ -406,6 +406,61 @@ public class Sorts2 {
     
     //}
     
-    
+    /**
+     * heapSort
+     * @param shapes
+     * @param comparisonType
+     */
+    public void heapSort(ThreeDShape[] shapes, String comparisonType) {
+        int n = shapes.length;
+
+        // Constructing a Maximum Heap
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapify(shapes, n, i, comparisonType);
+
+        // Take out the biggest number one by one, then rearrange the heap.
+        for (int i = n - 1; i > 0; i--) {
+            ThreeDShape temp = shapes[0];
+            shapes[0] = shapes[i];
+            shapes[i] = temp;
+
+            heapify(shapes, i, 0, comparisonType);
+        }
+    }
+
+    private void heapify(ThreeDShape[] shapes, int n, int i, String comparisonType) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (comparisonType.equals("h")) {
+            if (left < n && shapes[left].compareTo(shapes[largest]) > 0)
+                largest = left;
+            if (right < n && shapes[right].compareTo(shapes[largest]) > 0)
+                largest = right;
+        } else {
+            double largestValue = getValue(shapes[largest], comparisonType);
+            if (left < n && getValue(shapes[left], comparisonType) > largestValue)
+                largest = left;
+            if (right < n && getValue(shapes[right], comparisonType) > largestValue)
+                largest = right;
+        }
+
+        if (largest != i) {
+            ThreeDShape swap = shapes[i];
+            shapes[i] = shapes[largest];
+            shapes[largest] = swap;
+
+            heapify(shapes, n, largest, comparisonType);
+        }
+    }
+
+    private double getValue(ThreeDShape shape, String comparisonType) {
+        if (comparisonType.equals("v")) {
+            return shape.getVolume();
+        } else {
+            return shape.getBaseArea();
+        }
+    }
     
 }// end of Sorts class

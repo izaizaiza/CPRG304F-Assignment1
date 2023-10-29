@@ -9,6 +9,7 @@ import shape.ThreeDShape;
 import shape.Cone;
 import shape.Cylinder;
 
+import shape.*;
 
 /**
  *
@@ -71,11 +72,12 @@ public class AppDriver {
            int shape3DCount = 0;
            // recall that the very first text/token is the num of shapes
            int numOfShapes = Integer.parseInt(scanner.next());
+           shapes3D = new ThreeDShape[numOfShapes];
            while (scanner.hasNext()) {
                
                
                // use the numOfShapes to create the array
-               shapes3D = new ThreeDShape[numOfShapes];
+               //shapes3D = new ThreeDShape[numOfShapes]; moved it to line 75
                // the next thing would then be a shapeType
                String shapeType = scanner.next();
                // find out what 3D shape it is to create it and add to the list
@@ -94,11 +96,38 @@ public class AppDriver {
                }
                else if(shapeType.contains("Pyramid")){
                    //handle Pyramid
-                   
+                    double height = scanner.nextDouble();
+                    double edgeLength = scanner.nextDouble();
+                    shapes3D[shape3DCount] = new Pyramid(height, edgeLength);
+                    shape3DCount++;
                }
                else if(shapeType.equalsIgnoreCase("Prism") || 
                        shapeType.contains("Prism")){
                    // handle Prism
+                   // Get the base shape type
+                    double height = scanner.nextDouble();
+                    double edgeLength = scanner.nextDouble();
+
+                    // Create the corresponding prism based on the base shape type
+                    switch (shapeType) {
+                        case "SquarePrism":
+                            shapes3D[shape3DCount] = new SquarePrism(height, edgeLength);
+                            break;
+                        case "TriangularPrism":
+                            shapes3D[shape3DCount] = new TriangularPrism(height, edgeLength);
+                            break;
+                        case "PentagonalPrism":
+                            shapes3D[shape3DCount] = new PentagonalPrism(height, edgeLength);
+                            break;
+                        case "OctagonalPrism":
+                            shapes3D[shape3DCount] = new OctagonalPrism(height, edgeLength);
+                            break;
+                        default:
+                            System.out.println("Invalid base shape type for Prism: " + shapeType);
+                            return;
+                    }
+
+                    shape3DCount++;
                }
                
             //print the 3d to check
@@ -157,3 +186,4 @@ public class AppDriver {
     
     
 } // end of AppDriver class
+
