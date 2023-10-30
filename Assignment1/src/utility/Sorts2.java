@@ -15,6 +15,9 @@ public class Sorts2 {
      * in the Assignment the shapes are to be sorted from largest to smallest (in descending order)
      */
     
+    
+    public Sorts2(){};
+    
     /**
      * @param shapes an array of ThreeDShape objects
      * @param comparisonType h (height) or v (volume) or a (base area)

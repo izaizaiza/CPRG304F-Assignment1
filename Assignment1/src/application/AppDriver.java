@@ -8,6 +8,7 @@ import java.util.Scanner;
 import shape.ThreeDShape;
 import shape.Cone;
 import shape.Cylinder;
+import utility.Sorts2;
 
 import shape.*;
 
@@ -44,6 +45,9 @@ public class AppDriver {
                sortingAlgo = args[i].substring(2).toLowerCase(); // make them all lower case for easier handling
            }
        }
+       
+       
+       
        
        // just in case the filename is not entered
        if (fileName.isEmpty() || comparisonType.isEmpty() || !isValidSortingAlgo(sortingAlgo)){
@@ -139,10 +143,46 @@ public class AppDriver {
            //print the 3d to check
            for (ThreeDShape shapes3D1 : shapes3D) {
                
-               System.out.println("shape: " + shapes3D1.getClass() + " and height: " + shapes3D1.getHeight());
+               System.out.println("shape: " + shapes3D1.getClass() + " height: " + shapes3D1.getHeight());
            }
+           
+           
            //print shape3D count
-           System.out.println(shape3DCount);
+           System.out.println("shape count: " + shape3DCount);
+           
+           //sort
+           switch (sortingAlgo){
+                case "b":
+                   Sorts2.bubbleSort(shapes3D, comparisonType);
+                   break;
+                case "s":
+                   Sorts2.selectionSort(shapes3D, comparisonType);
+                case "i":
+                   Sorts2.insertionSort(shapes3D, comparisonType);
+                case "m":
+                   Sorts2.mergeSort(shapes3D, comparisonType);
+                case "q":
+                   Sorts2.quickSort(shapes3D, comparisonType, 0, numOfShapes);
+                case "z":
+                    Sorts2 sort = new Sorts2(){};
+                    sort.heapSort(shapes3D, comparisonType);
+                default:
+                    System.out.println("Error in sorting.");
+                    return;
+           }
+
+           
+           //print sorted array
+           //print the 3d to check
+           for (ThreeDShape shapes3D1 : shapes3D) {
+               
+               System.out.println("shape: " + shapes3D1.getClass() + " height: " + shapes3D1.getHeight());
+           }
+           
+           
+           
+           
+           
        }
        catch (FileNotFoundException e){
            System.out.println("Error reading the file: " + e.getMessage());
@@ -152,9 +192,7 @@ public class AppDriver {
        
        
        
-       // Process and sort the shapes on the given criteria
-       // use ThreeDShapeComparator
-       // or the comparable
+       
        
        
        
