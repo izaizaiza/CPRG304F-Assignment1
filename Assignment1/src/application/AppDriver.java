@@ -179,6 +179,17 @@ public class AppDriver {
                System.out.println("shape: " + shapes3D1.getClass() + " height: " + shapes3D1.getHeight());
            }
            
+           // print 1, 1000, 2000, 3000,...numOfShapes
+           int index = 0;
+           while(index <= numOfShapes){
+               System.out.println("shape: " + shapes3D[index].getClass() + 
+                       " height: " + shapes3D[index].getHeight() + " area: " + 
+                       shapes3D[index].getBaseArea() + " volume: " + 
+                       shapes3D[index].getVolume());
+               index += 1000;
+           }
+           
+           
            
            
            
