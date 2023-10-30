@@ -14,12 +14,14 @@ public class PentagonalPrism extends ThreeDShape {
     private double height;
     private double side;
     
+    
     //constructors
     public PentagonalPrism(){}
     
     public PentagonalPrism(double height, double side){
         this.height = height;
         this.side = height;
+        
     }
     
     

@@ -6,7 +6,7 @@ import application.ThreeDShapeComparator;
 
 /**
  *
- * @author dlg12
+ * @author dlg12, izalu
  */
 public class Sorts2 {
     
@@ -309,7 +309,7 @@ public class Sorts2 {
          * where low is the starting index and high is the last index
          * 3. apply the split again until the left and right arrays cannot be divided anymore.
          * // put this in another helper method?
-         * 4. to merge: initialize two pointers one for  the left and one for the right array.
+         * 4. to merge we initialize two pointers: one for  the left and one for the right array.
          * 5. compare the elements pointed by the pointers. whichever is larger, take it and place in the result array (descending order)
          * keep comparing the elements in the sub arrays until all are compared. add the last remaining to the array.
          * 
@@ -391,20 +391,6 @@ public class Sorts2 {
     }
     
     
-    
-    // Fast Sort
-    //public static void fastSort(ThreeDShape[] shapes, String comparisonType){
-        
-        /**
-         * fast sort algorithm:
-         * 1.
-         * 2.
-         * 3.
-         * 
-         */
-
-    
-    //}
     
     /**
      * heapSort

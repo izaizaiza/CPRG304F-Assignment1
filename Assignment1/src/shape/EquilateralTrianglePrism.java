@@ -13,12 +13,14 @@ public class EquilateralTrianglePrism extends ThreeDShape{
     private double height;
     private double side;
     
+    
     //constructors
     public EquilateralTrianglePrism(){}
     
     public EquilateralTrianglePrism(double height, double side){
         this.height = height;
         this.side = side;
+        
     }
     
     

@@ -23,6 +23,7 @@ public class OctagonalPrism extends ThreeDShape {
     public OctagonalPrism(double height, double side){
         this.height = height;
         this.side = side;
+        
     }
     
     

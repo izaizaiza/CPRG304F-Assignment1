@@ -17,12 +17,14 @@ public class SquarePrism extends ThreeDShape {
     private double height;
     private double side;
     
+    
     //constructors
     public SquarePrism(){}
     
     public SquarePrism(double height, double side){
         this.height = height;
         this.side = height;
+        
     }
     
     

@@ -55,7 +55,7 @@ public class AppDriver {
        ////////// reading the file
        
        // create an array to store the threeD shapes
-       ThreeDShape[] shapes3D = new ThreeDShape[100]; // will be changed later
+       ThreeDShape[] shapes3D; // will be changed later
        
        
        // Read the shapes from the given file and add to the array
@@ -130,18 +130,16 @@ public class AppDriver {
                     shape3DCount++;
                }
                
-            //print the 3d to check
-           //for (int i = 0; i< shapes3D.length; i++){
-           //    System.out.println(shapes3D[i].getHeight());
-           //}
+            
            }
            
            //close scanner
            scanner.close();
            
            //print the 3d to check
-           for (int i = 0; i< shapes3D.length; i++){
-               System.out.println(shapes3D[i].getHeight());
+           for (ThreeDShape shapes3D1 : shapes3D) {
+               
+               System.out.println("shape: " + shapes3D1.getClass() + " and height: " + shapes3D1.getHeight());
            }
            //print shape3D count
            System.out.println(shape3DCount);
